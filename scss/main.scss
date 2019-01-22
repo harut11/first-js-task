@@ -1,0 +1,30 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+/* Helpers Start */
+$white: #fff;
+/* Helpers End */
+
+/* Navbar Section Start */
+nav {
+  a {
+    text-transform: uppercase;
+    color: $white!important;
+  }
+}
+/* Navbar Section End */
+/* Table Section Start */
+#table {
+  .items {
+    .item {
+      width: 50px;
+      height: 50px;
+      border: 2px solid grey;
+      margin: 1px;
+      display: inline-block;
+    }
+  }
+}
+/* Table Section End */
