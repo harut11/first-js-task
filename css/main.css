@@ -4,6 +4,10 @@
 }
 
 /* Helpers Start */
+.marked {
+  background-color: yellow;
+}
+
 /* Helpers End */
 /* Navbar Section Start */
 nav a {

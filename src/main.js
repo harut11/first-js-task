@@ -1,4 +1,5 @@
 let input =  document.getElementById('squares');
+let select = document.getElementById('variants');
 
 let initItem = (number) => {
     let container = document.getElementById('table');
@@ -8,7 +9,7 @@ let initItem = (number) => {
         let div = document.createElement('div');
         div.classList.add('items');
         container.appendChild(div);
-        for (let i = 0; i < number; i++) {
+        for (let s = 0; s < number; s++) {
             let div2 = document.createElement('div');
             div2.classList.add('item');
             div.appendChild(div2);
@@ -21,21 +22,26 @@ let initItem = (number) => {
     });
 };
 
-input.addEventListener('keyup', (event) => {
-    event.target.classList.remove('is-invalid', 'is-valid');
+document.getElementById('buttonShow').addEventListener('click', () => {
+    input.classList.remove('is-invalid', 'is-valid');
 
-    if(!event.target.value) {
-        event.target.classList.add('is-invalid');
+    if(!input.value) {
+        input.classList.add('is-invalid');
         return false;
-    } else event.target.classList.add('is-valid');
+    } else input.classList.add('is-valid');
 
-    if(event.target.value < 2 || event.target.value > 30) {
-        event.target.classList.add('is-invalid');
+    if(input.value < 2 || input.value > 30) {
+        input.classList.add('is-invalid');
         return false;
     }
 
-    if(event.target.value) {
-        let value = event.target.value;
+    if(select.value === '1') {
+        let items = document.getElementsByClassName('item');
+        console.log(items);
+    }
+
+    if(input.value && input.value >= 2 || input.value <= 30) {
+        let value = input.value;
         initItem(value);
     }
 });
