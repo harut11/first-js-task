@@ -88,11 +88,53 @@ select.addEventListener('change', (event) => {
     }
 
     if(drawMode === 'chess') {
-        for(let i = 0; i < item.length; i++) {
-            let itemData = getDataId(item[i]);
+        for(let s = 0; s < items.length; s++) {
+            let itemsData = getDataId(items[s]);
+            if(itemsData % 2 === 1) {
+                let child = items[s].childNodes;
 
-            if(itemData % 2 === 1) {
-                item[i].classList.add('marked');
+                for(let i = 0; i < child.length; i++) {
+                    let childData = getDataId(child[i]);
+
+                    if(childData % 2 === 1) {
+                        child[i].classList.add('marked');
+                    }
+                }
+            }
+            if(itemsData % 2 === 0) {
+                let child = items[s].childNodes;
+
+                for(let c = 0; c < child.length; c++) {
+                    let childData = getDataId(child[c]);
+
+                    if(childData % 2 === 0) {
+                        child[c].classList.add('marked');
+                    }
+                }
+            }
+        }
+    }
+
+    if(drawMode === 'diagonalDown') {
+        for(let i = 0; i < items.length; i++) {
+            let child = items[i].childNodes;
+            let s = child.length;
+            let j = 0;
+
+            while (j < s && j <= i) {
+                child[s - j - 1].classList.add('marked');
+                j++;
+            }
+        }
+    }
+
+    if(drawMode === 'diagonalUp') {
+        for(let i = 0; i < items.length; i++) {
+            let child = items[i].childNodes;
+            let s = child.length;
+
+            for(let j = 0; j < ( s-i ); j++){
+                child[j].classList.add('marked')
             }
         }
     }
